@@ -1,9 +1,7 @@
 import React from 'react';
 import './styles/App.scss';
-import SignIn from './components/SignIn/SignIn'
-import { Switch, Route } from 'react-router-dom'
-import Dashboard from './components/Dashboard/Dashboard';
-import SelectContent from './components/SelectContent/SelectContent';
+import Container from './components/Container/Container';
+
 
 function App() {
 
@@ -13,13 +11,11 @@ function App() {
 
     </nav>
     <main>
-      <Switch>
-        <Route exact path='/' component={SignIn}/>
-        <Route exact path='/sources' component={SelectContent}/>
-      </Switch>
+      <Container/>
     </main>
     </div>
   );
 }
 
 export default App;
+

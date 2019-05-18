@@ -1,32 +1,10 @@
 import React, { Component } from 'react';
-import {getSources} from '../../Services/Calls';
-import { Link,Route } from 'react-router-dom';
+
+import { Link,Route, Switch } from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 
 class SelectContent extends Component {
-    constructor(){
-        super();
-        this.state = {
-            sources : [],
-            selectedSources : []
-        }
-    }
 
-    async componentDidMount() {
-        try {
-            const resp = await getSources();
-            this.setState({sources:resp})
-        } catch (error) {
-            throw error
-        }
-    }
-
-
-    handleSourceClick = (e) => {
-        const { selectedSources  } = this.state;
-        const data = e.target.getAttribute('data')
-        this.setState({selectedSources: [...selectedSources, data]})
-    }
     // findSources = () => {
     //     const {sources} = this.state;
     //     const findAll = sources.filter(source => {
@@ -40,15 +18,15 @@ class SelectContent extends Component {
     // }
 
     render() {
-        const { sources,selectedSources  } = this.state;
+        const {sources, handleSourceClick} = this.props
+        console.log(this.props.sources)
         return (
             <div>
-                {/* {findAll} */}
                 {sources ? sources.map((source,index) => {
-                    return <li key={index} id={source.id}  data={source} onClick={this.handleSourceClick}>{source.name}</li>
+                    // console.log(source)
+                    return <li key={index} id={source.id} onClick={handleSourceClick}>{source.name}</li>
                 }): null}   
             <Link to='/dashboard'>Continue</Link>
-            <Route exact path='/dashboard' component={()=> <Dashboard selectedSources={selectedSources}/>}/>
             </div>
         );
     }

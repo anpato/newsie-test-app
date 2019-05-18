@@ -11,7 +11,7 @@ class Trending extends Component {
     async componentDidMount() {
         try {
             const resp = await getTrending();
-            console.log(resp);
+            // console.log(resp);
             return this.setState({trending:resp})
         } catch (error) {
             throw error
@@ -20,7 +20,7 @@ class Trending extends Component {
     
     handleclick = e => {
         const name = e.target.getAttribute('name')
-        console.log(name)
+        // console.log(name)
         return e.target.value
     }
 
