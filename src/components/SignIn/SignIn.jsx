@@ -17,9 +17,9 @@ class SignIn extends Component {
         console.log(name)
     }
 
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault();
-        this.setState({isAuthenticated:true})
+        await this.setState({isAuthenticated:true})
     }
 
 
@@ -39,6 +39,7 @@ class SignIn extends Component {
                         <input htmlFor="username" type="password" name="password" defaultValue={password}/>
                     <button type="submit">Sign In</button>
                 </form>
+                <Route exact path='/dashboard' component={Dashboard}/>
             </div>
         );
     }
