@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './styles/App.scss';
 import SignIn from './components/SignIn/SignIn'
 import { Switch, Route } from 'react-router-dom'
 import Dashboard from './components/Dashboard/Dashboard';
