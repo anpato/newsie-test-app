@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Route } from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard';
+import SelectContent from '../SelectContent/SelectContent';
 class SignIn extends Component {
     constructor(props){
         super(props);
@@ -27,7 +28,7 @@ class SignIn extends Component {
         const { username,password,isAuthenticated  } = this.state
         
         if(isAuthenticated === true){
-            return <Redirect to='/dashboard'/>
+            return <Redirect to='/sources'/>
         }
         
         return (
@@ -39,7 +40,7 @@ class SignIn extends Component {
                         <input htmlFor="username" type="password" name="password" defaultValue={password}/>
                     <button type="submit">Sign In</button>
                 </form>
-                <Route exact path='/dashboard' component={Dashboard}/>
+                <Route exact path='/sources' component={SelectContent}/>
             </div>
         );
     }
