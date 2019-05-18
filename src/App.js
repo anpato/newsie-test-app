@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
 import Trending from './components/Trending/Trending';
+import SignIn from './components/SignIn/SignIn'
+import { Switch, Route } from 'react-router-dom'
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
-  const api_key = process.env.REACT_APP_NEWS_API_KEY
+
   return (
     <div className="App">
-      <Trending api_key={api_key}/>
+    <main>
+        <Route to='/' component={SignIn}/>
+        <Route to='/dashboard' component={Dashboard}/>
+    </main>
     </div>
   );
 }
