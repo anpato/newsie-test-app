@@ -13,14 +13,13 @@ class Dashboard extends Component {
 
     componentDidMount() {
         const articles = JSON.parse(localStorage.getItem('articles'))
-        console.log(articles)
         this.setState({articles})
     }
 
     render() {
         const {articles} = this.state
-        const allArticles =  articles ? articles.map(article =>{
-            return <div className='article-container'>
+        const allArticles =  articles ? articles.map((article,index) =>{
+            return <div className='article-container' key={index}>
                         <img src={article.urlToImage} alt='Article' />
                         <h2>{article.source.name}</h2>
                         <h1>{article.title}</h1>

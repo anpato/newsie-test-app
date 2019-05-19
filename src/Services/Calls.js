@@ -12,7 +12,7 @@ export const getSources = async () => {
 
 export const getTrending = async () => {
     try {
-        const url = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`);
+        const url = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${api_key}`);
         const resp = await url.json()
         return resp.articles
     } catch (error) {

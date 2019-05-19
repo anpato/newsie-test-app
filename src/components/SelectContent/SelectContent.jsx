@@ -20,7 +20,6 @@ class SelectContent extends Component {
 
     render() {
         const {sources, handleSourceClick} = this.props
-        console.log(this.props.sources)
         return (
             <div>
                 {sources ? sources.map((source,index) => {
