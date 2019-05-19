@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Trending from '../Trending/Trending';
 import SelectContent from '../SelectContent/SelectContent';
+import moment from 'moment';
 
 
 class Dashboard extends Component {
@@ -23,7 +24,7 @@ class Dashboard extends Component {
                         <img src={article.urlToImage} alt='Article' />
                         <h2>{article.source.name}</h2>
                         <h1>{article.title}</h1>
-                        <h4>{article.publishedAt}</h4>
+                        <h4>{moment(article.publishedAt).format('MM/DD HH:mm A')}</h4>
                         <p>{article.description}</p>
                     </div>
 
