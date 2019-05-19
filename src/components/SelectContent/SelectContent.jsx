@@ -17,13 +17,13 @@ class SelectContent extends Component {
     //     return findAll
     // }
 
+
     render() {
         const {sources, handleSourceClick} = this.props
         console.log(this.props.sources)
         return (
             <div>
                 {sources ? sources.map((source,index) => {
-                    // console.log(source)
                     return <li key={index} id={source.id} onClick={handleSourceClick}>{source.name}</li>
                 }): null}   
             <Link to='/dashboard'>Continue</Link>

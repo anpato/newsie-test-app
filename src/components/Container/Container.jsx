@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SignIn from '../SignIn/SignIn';
 import { Switch, Route } from 'react-router-dom';
-import {getSources} from '../../Services/Calls';
+import {getSources,findBySource} from '../../Services/Calls';
 import Dashboard from '../Dashboard/Dashboard';
 import SelectContent from '../SelectContent/SelectContent';
 
@@ -23,11 +23,12 @@ class Container extends Component {
         }
     }
 
-    handleSourceClick = (e) => {
+    handleSourceClick = async (e) => {
         const { selectedSources  } = this.state;
         const {id} = e.target
         this.setState({selectedSources: [...selectedSources, id]})
-        // console.log(selectedSources)
+        const resp = await findBySource(selectedSources)
+        localStorage.setItem('articles', JSON.stringify(resp))
     }
 
     render() {

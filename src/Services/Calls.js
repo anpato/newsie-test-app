@@ -34,8 +34,7 @@ export const findBySource = async (sourceId) => {
     try {
         const url = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sourceId}&apiKey=${api_key}`);
         const resp = await url.json();
-        localStorage.setItem('articles', resp)
-        return resp
+        return resp.articles
     } catch (error) {
         throw error
     }

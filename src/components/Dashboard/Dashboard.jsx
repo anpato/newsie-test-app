@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Trending from '../Trending/Trending';
 import SelectContent from '../SelectContent/SelectContent';
-import {findBySource} from '../../Services/Calls';
+
 
 class Dashboard extends Component {
     constructor(){
@@ -11,22 +11,14 @@ class Dashboard extends Component {
         }
     }
 
-    async componentDidMount() {
-        const {selectedSources} =this.props
-        try {
-            const resp = await findBySource(selectedSources);
-            // const articles = JSON.parse(localStorage.getItem('articles'))
-            // const articles = JSON.parse(localStorage.getItem('articles'))
-            // console.log(articles)
-            return resp
-        } catch (error) {
-            throw error
-        }
+    componentDidMount() {
+        const articles = JSON.parse(localStorage.getItem('articles'))
+        console.log(articles)
+        this.setState({articles})
     }
 
     render() {
-        
-        const  { articles }  = this.state;
+        const {articles} = this.state
         const allArticles =  articles ? articles.map(article =>{
             return <div className='article-container'>
                         <img src={article.urlToImage} alt='Article' />
