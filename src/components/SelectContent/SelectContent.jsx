@@ -21,10 +21,12 @@ class SelectContent extends Component {
     render() {
         const {sources, handleSourceClick} = this.props
         return (
-            <div>
+            <div className="source-container">
+                <div className="source-grid">
                 {sources ? sources.map((source,index) => {
-                    return <li key={index} id={source.id} onClick={handleSourceClick}>{source.name}</li>
-                }): null}   
+                    return <li key={index} id={source.id} onClick={handleSourceClick} className="icon">{source.name}</li>
+                }): null}
+            </div>   
             <Link to='/dashboard'>Continue</Link>
             </div>
         );
