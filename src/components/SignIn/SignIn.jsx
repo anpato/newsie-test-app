@@ -43,6 +43,7 @@ class SignIn extends Component {
                         <input htmlFor="username" type="password" name="password" placeholder='password' defaultValue={password}/>
                         <br/>
                     <button className="subButton" type="submit">Sign In</button>
+                </form>
                 <Switch>
                 <Route exact path='/sources' component={SelectContent}/>
                 <Route exact path='/dashboard' component={Dashboard}/>
