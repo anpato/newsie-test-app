@@ -1,27 +1,31 @@
 import React, { Component } from 'react';
-import {getSources} from '../../Services/Calls'
+
+import { Link,Route, Switch } from 'react-router-dom';
+import Dashboard from '../Dashboard/Dashboard';
 
 class SelectContent extends Component {
-    constructor(){
-        super();
-        this.state = {
-            sources : []
-        }
-    }
 
-    async componentDidMount() {
-        try {
-            const resp = await getSources();
-            this.setState({sources:resp})
-        } catch (error) {
-            throw error
-        }
-    }
+    // findSources = () => {
+    //     const {sources} = this.state;
+    //     const findAll = sources.filter(source => {
+    //         if(source.id === 'business-insider' || source.id === 'bloomberg' || source.id === 'the-wall-street-journal'){
+    //             return <img src={`../../assets/images/${source.id}.png`}/>
+    //         }
+    //     })
+    //     this.setState({findAll})
+    //     console.log(findAll)
+    //     return findAll
+    // }
+
 
     render() {
+        const {sources, handleSourceClick} = this.props
         return (
             <div>
-                
+                {sources ? sources.map((source,index) => {
+                    return <li key={index} id={source.id} onClick={handleSourceClick}>{source.name}</li>
+                }): null}   
+            <Link to='/dashboard'>Continue</Link>
             </div>
         );
     }

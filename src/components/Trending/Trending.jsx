@@ -19,9 +19,7 @@ class Trending extends Component {
     }
     
     handleclick = e => {
-        const name = e.target.getAttribute('name')
-        console.log(name)
-        return e.target.value
+        const {name} = e.target
     }
 
 
@@ -31,7 +29,7 @@ class Trending extends Component {
         return (
             <ul>
                 {trending ? trending.map((trend,index) => {
-                    return <li key={index}>{trend.source.name}</li>
+                    return <li key={index}><img src={trend.urlToImage} alt="trending"/>{trend.source.name}</li>
                 }): <li></li>}
             </ul>
         );

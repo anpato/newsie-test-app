@@ -2,7 +2,7 @@ export const api_key = process.env.REACT_APP_NEWS_API_KEY
 
 export const getSources = async () => {
     try {
-        const url = await fetch(`https://newsapi.org/v2/sources?country=us&apiKey=${api_key}`);
+        const url = await fetch(`https://newsapi.org/v2/sources?country=us&category=business&apiKey=${api_key}`);
         const resp = await url.json()
         return resp.sources;
     } catch (error) {
@@ -12,7 +12,7 @@ export const getSources = async () => {
 
 export const getTrending = async () => {
     try {
-        const url = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`);
+        const url = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${api_key}`);
         const resp = await url.json()
         return resp.articles
     } catch (error) {
@@ -34,7 +34,7 @@ export const findBySource = async (sourceId) => {
     try {
         const url = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sourceId}&apiKey=${api_key}`);
         const resp = await url.json();
-        return resp;
+        return resp.articles
     } catch (error) {
         throw error
     }
