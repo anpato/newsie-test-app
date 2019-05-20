@@ -27,7 +27,6 @@ class Dashboard extends Component {
                         <h4>{moment(article.publishedAt).format('MM/DD HH:mm A')}</h4>
                         <p>{article.description}</p>
                     </div>
-
         }) : () => <h1>Articles loading...</h1> 
         return (
             <div>

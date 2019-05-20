@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Redirect, Route,Switch } from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard';
 import SelectContent from '../SelectContent/SelectContent';
+import './SignIn.css'
+
+
 class SignIn extends Component {
     constructor(props){
         super(props);
@@ -26,22 +29,22 @@ class SignIn extends Component {
 
     render() {
         const { username,password,isAuthenticated  } = this.state
-        
+
         if(isAuthenticated === true){
             return <Redirect to='/sources'/>
         }
-        
+
         return (
             <div className="signIn-form">
-                                <Switch>
-                <form onChange={this.handleFormChange} onSubmit={this.handleSubmit}>
-                    <label htmlFor="username">Username</label>
-                        <input type="text" name="username" defaultValue={username}/>
-                    <label>Password</label>
-                        <input htmlFor="username" type="password" name="password" defaultValue={password}/>
-                    <button type="submit">Sign In</button>
+                <form className="forma" onChange={this.handleFormChange} onSubmit={this.handleSubmit}>
+                    <label htmlFor="username"></label>
+                    <br/>
+                        <input type="text" name="username" placeholder='username' defaultValue={username}/>
+                        <input htmlFor="username" type="password" name="password" placeholder='password' defaultValue={password}/>
+                        <br/>
+                    <button className="subButton" type="submit">Sign In</button>
                 </form>
-
+                <Switch>
                 <Route exact path='/sources' component={SelectContent}/>
                 <Route exact path='/dashboard' component={Dashboard}/>
                 </Switch>
