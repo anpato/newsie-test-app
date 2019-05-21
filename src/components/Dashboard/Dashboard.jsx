@@ -20,8 +20,6 @@ class Dashboard extends Component {
     render() {
         const {articles} = this.state
         const allArticles =  articles ? articles.map((article,index) =>{
-            console.log(article);
-            
             return <div className='article-container' key={index}>
                         <h3>Business</h3>
                         <div className='article-info'>

@@ -12,7 +12,8 @@ class Container extends Component {
         this.state = {
             sources : [],
             selectedSources : [],
-            isClicked : []
+            isClicked : [],
+            removeSource : []
         }
     }
 
@@ -25,21 +26,19 @@ class Container extends Component {
         }
     }
 
-    componentWillUnmount(){
-        this.setState({selectedSources:[]})
-    }
-
     handleSourceClick = async (e,index) => {
         const { selectedSources,isClicked  } = this.state;
         const {id} = e.target
 
-        
         this.setState({
             selectedSources: [...selectedSources, id],
             isClicked: [...isClicked, index]})
-            console.log(isClicked);
         const resp = await findBySource(selectedSources)
-        localStorage.setItem('articles', JSON.stringify(resp))
+        return localStorage.setItem('articles', JSON.stringify(resp))
+    }
+
+    handleLinkClick = () => {
+        this.setState({selectedSources:[]})
     }
 
     render() {
@@ -49,7 +48,7 @@ class Container extends Component {
                 <Switch>
                     <Route exact path='/' component={SignIn}/>
                     <Route exact path='/dashboard' component={(props)=> <Dashboard {...props} selectedSources={selectedSources}  />}/>
-                    <Route exact path='/sources' component={(props)=> <SelectContent {...props} selectedSources={selectedSources} handleSourceClick={this.handleSourceClick} sources={sources} isClicked={isClicked}/>}/>
+                    <Route exact path='/sources' component={(props)=> <SelectContent {...props} selectedSources={selectedSources} handleSourceClick={this.handleSourceClick} sources={sources} isClicked={isClicked} handleLinkClick={this.handleLinkClick}/> }/>
                 </Switch>
             </div>
         );
