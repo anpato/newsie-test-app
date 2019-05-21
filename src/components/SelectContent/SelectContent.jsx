@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
-
+import bloomberg from '../../assets/images/bloomberg.png';
+import businessInsider from '../../assets/images/business-insider.png';
+import wallStreet from '../../assets/images/the-wall-street-journal.png';
 import { Link,Route, Switch } from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 
 class SelectContent extends Component {
 
-    // findSources = () => {
-    //     const {sources} = this.state;
-    //     const findAll = sources.filter(source => {
-    //         if(source.id === 'business-insider' || source.id === 'bloomberg' || source.id === 'the-wall-street-journal'){
-    //             return <img src={`../../assets/images/${source.id}.png`}/>
-    //         }
-    //     })
-    //     this.setState({findAll})
-    //     console.log(findAll)
-    //     return findAll
-    // }
-
-
     render() {
         const {sources, handleSourceClick} = this.props
+        const bloombergData = "bloomberg"
+        const wallStreetJournal = "the-wall-street-journal"
+        const insider = "business-insider"
         return (
             <div className="source-container">
                 <div className="source-grid">
-                {sources ? sources.map((source,index) => {
-                    return <li key={index} id={source.id} onClick={handleSourceClick} className="icon">{source.name}</li>
-                }): null}
+                        <img src={bloomberg}  name={bloombergData} onClick={handleSourceClick}/>
+                        <img src={businessInsider} name={wallStreetJournal} onClick={handleSourceClick}/>
+                        <img src={wallStreet} name={insider} onClick={handleSourceClick}/>
             </div>   
             <Link to='/dashboard'>Continue</Link>
             </div>

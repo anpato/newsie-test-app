@@ -25,8 +25,10 @@ class Container extends Component {
 
     handleSourceClick = async (e) => {
         const { selectedSources  } = this.state;
-        const {id} = e.target
-        this.setState({selectedSources: [...selectedSources, id]})
+        const {name} = e.target
+        console.log(name);
+        
+        this.setState({selectedSources: [...selectedSources, name]})
         const resp = await findBySource(selectedSources)
         localStorage.setItem('articles', JSON.stringify(resp))
     }
