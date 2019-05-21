@@ -12,7 +12,7 @@ class Container extends Component {
         this.state = {
             sources : [],
             selectedSources : [],
-            isClicked : false
+            isClicked : []
         }
     }
 
@@ -29,22 +29,21 @@ class Container extends Component {
         this.setState({selectedSources:[]})
     }
 
-    handleSourceClick = async (e) => {
-        e.preventDefault()
-        const { selectedSources  } = this.state;
-        const {name,id} = e.target
-        console.log(id);
+    handleSourceClick = async (e,index) => {
+        const { selectedSources,isClicked  } = this.state;
+        const {id} = e.target
+
         
         this.setState({
             selectedSources: [...selectedSources, id],
-            isClicked: !this.state.isClicked[id]})
+            isClicked: [...isClicked, index]})
+            console.log(isClicked);
         const resp = await findBySource(selectedSources)
         localStorage.setItem('articles', JSON.stringify(resp))
     }
 
     render() {
         const { sources, selectedSources, isClicked  } = this.state;
-        console.log(sources)
         return (
             <div>
                 <Switch>

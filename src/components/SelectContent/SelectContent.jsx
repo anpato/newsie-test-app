@@ -1,32 +1,19 @@
 import React, { Component } from 'react';
-import bloomberg from '../../assets/images/bloomberg.png';
-import businessInsider from '../../assets/images/business-insider.png';
-import wallStreet from '../../assets/images/the-wall-street-journal.png';
-import { Link,Route, Switch } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
+import { Link} from 'react-router-dom';
 
 class SelectContent extends Component {
 
-    toggleSelectedItem = (e,id) => {
-        
-    }
-
     render() {
         const {selectedSources,sources, handleSourceClick,isClicked} = this.props
-        const bloombergData = "bloomberg"
-        const wallStreetJournal = "the-wall-street-journal"
-        const insider = "business-insider"
-        
-
-        
         
         const toggleBtn = selectedSources.length > 0 ?'btn btn-active':'btn'
-        const toggle = isClicked === true ? 'toggle active' : 'toggle'
         return (
             <div className="source-container">
                 <div className="source-grid">
                 {sources ? sources.map((source,index) => {
-                    return <li key={index} id={source.id} className={toggle} onClick={(id)=> handleSourceClick(id)} >
+                    const toggle = isClicked.includes(index) ? 'toggle active' : 'toggle'
+                    
+                    return <li key={index} id={source.id} className={toggle} onClick={(e)=> handleSourceClick(e,index)} >
                     {source.name}</li>
                 }):null}
                 </div>   
