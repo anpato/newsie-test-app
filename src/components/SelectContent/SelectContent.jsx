@@ -7,19 +7,30 @@ import Dashboard from '../Dashboard/Dashboard';
 
 class SelectContent extends Component {
 
+    toggleSelectedItem = (e,id) => {
+        
+    }
+
     render() {
-        const {sources, handleSourceClick} = this.props
+        const {selectedSources,sources, handleSourceClick,isClicked} = this.props
         const bloombergData = "bloomberg"
         const wallStreetJournal = "the-wall-street-journal"
         const insider = "business-insider"
+        
+
+        
+        
+        const toggleBtn = selectedSources.length > 0 ?'btn btn-active':'btn'
+        const toggle = isClicked === true ? 'toggle active' : 'toggle'
         return (
             <div className="source-container">
                 <div className="source-grid">
-                        <img src={bloomberg}  name={bloombergData} onClick={handleSourceClick}/>
-                        <img src={businessInsider} name={wallStreetJournal} onClick={handleSourceClick}/>
-                        <img src={wallStreet} name={insider} onClick={handleSourceClick}/>
-            </div>   
-            <Link to='/dashboard'>Continue</Link>
+                {sources ? sources.map((source,index) => {
+                    return <li key={index} id={source.id} className={toggle} onClick={(id)=> handleSourceClick(id)} >
+                    {source.name}</li>
+                }):null}
+                </div>   
+            <Link to='/dashboard' className={toggleBtn}>Continue</Link>
             </div>
         );
     }
