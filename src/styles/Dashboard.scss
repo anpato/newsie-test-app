@@ -1,13 +1,11 @@
 
 .dashboard-container{
   width: 375px;
-  height: 1388px;
   padding-left: 13px;
   padding-right: 13px;
 }
 .article-container{
   width: 349px;
-  // height: 1246px;
   border-radius: 8px;
   box-shadow: 0 2px 20px 0 rgba(123, 123, 123, 0.5);
   background-color: #f9f9f9;
@@ -25,6 +23,7 @@
     letter-spacing: 0.6px;
     color: #313e50;
     padding-top: 10px;
+    // border: solid red
 
   }
   .article-info{
@@ -34,35 +33,35 @@
     padding-bottom: 7px;
     display: flex;
     flex-direction: column;
+   
+
     
     img{
       width: 317px;
       height: 213px;
       border-radius: 17px;
       background-color: #d8d8d8;
+      margin-top: 0;
     }
     h2{
       width: 104px;
       height: 15px;
       font-family: 'Open Sans', sans-serif;
       font-size: 12px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: normal;
       letter-spacing: 0.5px;
       color: #313e50;
+      // border: solid yellow;
+      margin-top: 9px;
+
     }
     h1{
       width: 317px;
       font-family: 'Open Sans', sans-serif;
       font-size: 22px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: normal;
       letter-spacing: 0.6px;
       color: #313e50;
+      // border: solid green;
+      margin-top: 0;
     }
     h4{
       height: 15px;
@@ -70,6 +69,8 @@
       font-size: 12px;
       letter-spacing: 0.5px;
       color: #313e50;
+      // border: solid blue;
+      margin-top: 0px;
 
     }
     p{
@@ -77,6 +78,8 @@
       font-family: 'Open Sans', sans-serif;
       font-size: 16px;
       color: #313e50;
+      // border: solid indigo;
+      margin-top: 0;
     }
 
     a{
