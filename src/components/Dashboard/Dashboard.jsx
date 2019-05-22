@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Trending from '../Trending/Trending';
-import SelectContent from '../SelectContent/SelectContent';
 import moment from 'moment';
 
 

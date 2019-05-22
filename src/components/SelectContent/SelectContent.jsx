@@ -1,31 +1,48 @@
 import React, { Component } from 'react';
+import { Link,Redirect } from 'react-router-dom';
 
-import { Link,Route, Switch } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
 
 class SelectContent extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            isRedirect : false,
+            dummyClass : false
+        }
+    }
 
-    // findSources = () => {
-    //     const {sources} = this.state;
-    //     const findAll = sources.filter(source => {
-    //         if(source.id === 'business-insider' || source.id === 'bloomberg' || source.id === 'the-wall-street-journal'){
-    //             return <img src={`../../assets/images/${source.id}.png`}/>
-    //         }
-    //     })
-    //     this.setState({findAll})
-    //     console.log(findAll)
-    //     return findAll
-    // }
+    handleLinkClick = (e,index) => {
+        this.setState({isRedirect:true})
+        this.props.handleBtnClick(e,index)
+    }
 
+    handleDummyClick = () => {
+        this.setState({dummyClass: !this.state.dummyClass})
+    }
 
     render() {
-        const {sources, handleSourceClick} = this.props
+        const {selectedSources,sources, handleSourceClick,isClicked} = this.props
+        const {isRedirect, dummyClass} = this.state
+        const toggleBtn = selectedSources.length > 0 ?'btn btn-active':'btn';
+        const toggleOne = dummyClass === true ? 'toggle active' : 'toggle'
+        if(isRedirect === true){
+            return <Redirect to='/dashboard'/>
+        }
+
         return (
-            <div>
+            <div className="source-container">
+                <div className="source-grid">
                 {sources ? sources.map((source,index) => {
-                    return <li key={index} id={source.id} onClick={handleSourceClick}>{source.name}</li>
-                }): null}   
-            <Link to='/dashboard'>Continue</Link>
+                    const toggle = isClicked.includes(index) ? 'toggle active' : 'toggle'
+                    const id = source.id
+                    return <li key={index} id={id} className={toggle} onClick={(e)=> handleSourceClick(e,index)} >
+                    </li>
+                    
+                
+                }):null}
+                <li id="yahoo" className={toggleOne} onClick={this.handleDummyClick}></li>
+                </div>   
+            <Link to='/dashboard' className={toggleBtn} onClick={this.handleLinkClick}>Continue</Link>
             </div>
         );
     }

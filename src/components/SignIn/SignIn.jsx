@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect, Route,Switch } from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard';
 import SelectContent from '../SelectContent/SelectContent';
-import './SignIn.css'
 
 
 class SignIn extends Component {
@@ -18,7 +17,6 @@ class SignIn extends Component {
     handleFormChange = e => {
         const {name, value} = e.target;
         this.setState({[name]:value})
-        // console.log(name)
     }
 
     handleSubmit = async e => {
@@ -35,14 +33,14 @@ class SignIn extends Component {
         }
 
         return (
-            <div className="signIn-form">
-                <form className="forma" onChange={this.handleFormChange} onSubmit={this.handleSubmit}>
+            <div className="signin-container">
+                <form className="signin-form" onChange={this.handleFormChange} onSubmit={this.handleSubmit}>
                     <label htmlFor="username"></label>
                     <br/>
-                        <input type="text" name="username" placeholder='username' defaultValue={username}/>
-                        <input htmlFor="username" type="password" name="password" placeholder='password' defaultValue={password}/>
+                        <input className="username" type="text" name="username" placeholder='Username' defaultValue={username}/>
+                        <input htmlFor="username" type="password" name="password" placeholder='Password' defaultValue={password}/>
                         <br/>
-                    <button className="subButton" type="submit">Sign In</button>
+                    <button className="signin-btn" type="submit">Sign In</button>
                 </form>
                 <Switch>
                 <Route exact path='/sources' component={SelectContent}/>
