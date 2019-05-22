@@ -29,16 +29,24 @@ class Container extends Component {
     handleSourceClick = async (e,index) => {
         const { selectedSources,isClicked  } = this.state;
         const {id} = e.target
-
-        if(!isClicked.includes(id) && !selectedSources.includes(id)){
+        let selectSource = selectedSources
+        let clickSource = isClicked
+        if(!isClicked.includes(index) && !selectedSources.includes(id)){
+            console.log(index);
+            selectSource = [...selectSource, id]
+            clickSource = [...clickSource, index]
             this.setState({
-                selectedSources: [...selectedSources, id],
-                isClicked: [...isClicked, index,id]
+                selectedSources: selectSource,
+                isClicked: clickSource
             })
+            console.log(isClicked);
+            
         } else {
+            selectSource.splice(id,1);
+            clickSource.splice(index,1);
             this.setState({
-                selectedSources: selectedSources.splice(id),
-                isClicked: isClicked.splice(id,1)
+                selectedSources: selectSource,
+                isClicked: clickSource
             })
         }
         console.log(selectedSources);
