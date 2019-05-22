@@ -39,7 +39,7 @@ class SignIn extends Component {
                 <form className="forma" onChange={this.handleFormChange} onSubmit={this.handleSubmit}>
                     <label htmlFor="username"></label>
                     <br/>
-                        <input type="text" name="username" placeholder='username' defaultValue={username}/>
+                        <input className="username" type="text" name="username" placeholder='username' defaultValue={username}/>
                         <input htmlFor="username" type="password" name="password" placeholder='password' defaultValue={password}/>
                         <br/>
                     <button className="subButton" type="submit">Sign In</button>

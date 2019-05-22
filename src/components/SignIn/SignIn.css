@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-@media only screen (max-width: 768px){
-=======
 
 
-
->>>>>>> 2080cc843b651c050a1e0e311c81f0ad54d0d4ea
 .signIn-form{
   height:667px;
   width:375px;
@@ -32,8 +27,48 @@ input{
   font-size:20px;
   background-color:none;
 }
-<<<<<<< HEAD
+@media only screen and (min-device-width : 400px){
+  .signIn-form{
+    height:900px;
+    width:1440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image:url('./desktopImage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+  }
+  .forma{
+    padding-left:15%;
+
+  }
+  .subButton{
+    border: grey;
+    width: 76%;
+    margin-top:20px;
+    background-color: lightgrey;
+    border-radius:3px;
+    height:25px;
+    color: darkblue;
+    font-family:sans-serif;
+  }
+
+  input{
+    width:75%;
+    font-size:20px;
+    background-color:none;
+    border: 1px solid black;
+    /* margin-top: -10px; */
+    border-radius: 3px;
+    font-family:sans-serif;
+  }
+
+  .username{
+    margin-top:10%;
+  }
+
 
 }
-=======
->>>>>>> 2080cc843b651c050a1e0e311c81f0ad54d0d4ea
