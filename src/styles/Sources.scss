@@ -85,6 +85,10 @@
         background-image: url('../assets/images/Mobile/the-wall-street-journal.png');
         background-size: cover;
     }
+    #yahoo {
+        background-image: url('../assets/images/Mobile/economist.png');
+        background-size: cover;
+    }
 }
 
 @media screen and (min-width: 500px){
@@ -170,6 +174,10 @@
     
     #the-wall-street-journal {
         background-image: url('../assets/images/desktop/the-wall-street-journal.png');
+        background-size: cover;
+    }
+    #yahoo {
+        background-image: url('../assets/images/desktop/The Economist.png');
         background-size: cover;
     }
 }
