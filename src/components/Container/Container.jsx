@@ -41,6 +41,7 @@ class Container extends Component {
                 isClicked: isClicked.splice(id,1)
             })
         }
+        console.log(selectedSources);
         const resp = await findBySource(selectedSources)
         return localStorage.setItem('articles', JSON.stringify(resp))
     }
