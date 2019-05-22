@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link} from 'react-router-dom';
 
-class SelectContent extends Component {
 
+class SelectContent extends Component {
     render() {
         const {selectedSources,sources, handleSourceClick,isClicked} = this.props
         
