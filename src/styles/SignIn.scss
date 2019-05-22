@@ -21,7 +21,7 @@
     .signin-btn {
         cursor: pointer;
         width: 50%;
-        padding: .6em 1em;
+        padding: .8em 1em;
         outline: none;
         border: none;
         border-radius: 6pt;
@@ -72,7 +72,6 @@
     }
 
     .signin-form {
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -81,8 +80,9 @@
 
     .signin-btn {
         cursor: pointer;
-        width: 50%;
-        padding: .6em 1em;
+        width: 30%;
+        height: auto;
+        padding: .8em 1em;
         outline: none;
         border: none;
         border-radius: 6pt;
