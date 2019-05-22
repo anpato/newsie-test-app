@@ -17,7 +17,7 @@ class SelectContent extends Component {
                     </li>
                 }):null}
                 </div>   
-            <Link to='/dashboard' className={toggleBtn} onClick={this.props.handleLinkClick}>Continue</Link>
+            <button className={toggleBtn} onClick={this.props.handleBtnClick}>Continue</button>
             </div>
         );
     }

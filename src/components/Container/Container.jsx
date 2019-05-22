@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SignIn from '../SignIn/SignIn';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import {getSources,findBySource} from '../../Services/Calls';
 import Dashboard from '../Dashboard/Dashboard';
 import SelectContent from '../SelectContent/SelectContent';
@@ -13,7 +13,8 @@ class Container extends Component {
             sources : [],
             selectedSources : [],
             isClicked : [],
-            removeSource : []
+            removeSource : [],
+            isRedirect : false
         }
     }
 
@@ -24,6 +25,10 @@ class Container extends Component {
         } catch (error) {
             throw error
         }
+    }
+
+    componentWillUnmount(){
+        this.setState({isRedirect:false})
     }
 
     handleSourceClick = async (e,index) => {
@@ -50,22 +55,30 @@ class Container extends Component {
             })
         }
         console.log(selectedSources);
-        const resp = await findBySource(selectedSources)
-        return localStorage.setItem('articles', JSON.stringify(resp))
+
     }
 
-    handleLinkClick = () => {
-        this.setState({selectedSources:[],isClicked:[]})
+    handleBtnClick = async(e) => {
+        e.preventDefault()
+        const {selectedSources} = this.state 
+        console.log(selectedSources)
+        const resp = await findBySource(selectedSources)
+        localStorage.setItem('articles', JSON.stringify(resp))
+        this.setState({selectedSources:[],isClicked:[], isRedirect:true})
+        
     }
 
     render() {
-        const { sources, selectedSources, isClicked  } = this.state;
+        const { sources, selectedSources, isClicked, isRedirect  } = this.state;
+        if(isRedirect===true){
+            return <Redirect to='/dashboard'/>
+        }
         return (
             <div>
                 <Switch>
                     <Route exact path='/' component={SignIn}/>
                     <Route exact path='/dashboard' component={(props)=> <Dashboard {...props} selectedSources={selectedSources}  />}/>
-                    <Route exact path='/sources' component={(props)=> <SelectContent {...props} selectedSources={selectedSources} handleSourceClick={this.handleSourceClick} sources={sources} isClicked={isClicked} handleLinkClick={this.handleLinkClick}/> }/>
+                    <Route exact path='/sources' component={(props)=> <SelectContent {...props} selectedSources={selectedSources} handleSourceClick={this.handleSourceClick} sources={sources} isClicked={isClicked} handleBtnClick={this.handleBtnClick}/> }/>
                 </Switch>
             </div>
         );
