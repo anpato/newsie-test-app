@@ -12,8 +12,8 @@ class SelectContent extends Component {
                 <div className="source-grid">
                 {sources ? sources.map((source,index) => {
                     const toggle = isClicked.includes(index) ? 'toggle active' : 'toggle'
-                    
-                    return <li key={index} id={source.id} className={toggle} onClick={(e)=> handleSourceClick(e,index)} >
+                    const id = source.id
+                    return <li key={index} id={id} className={toggle} onClick={(e)=> handleSourceClick(e,index)} >
                     </li>
                 }):null}
                 </div>   

@@ -30,20 +30,17 @@ class Container extends Component {
         const { selectedSources,isClicked  } = this.state;
         const {id} = e.target
 
-        if(!isClicked.includes(index.id) && !selectedSources.includes(id)){
+        if(!isClicked.includes(id) && !selectedSources.includes(id)){
             this.setState({
                 selectedSources: [...selectedSources, id],
-                isClicked: [...isClicked, {index:id}]
+                isClicked: [...isClicked, index,id]
             })
         } else {
             this.setState({
-                selectedSources: selectedSources.splice(id,1),
-                isClicked: isClicked.splice(index.id,1)
+                selectedSources: selectedSources.splice(id),
+                isClicked: isClicked.splice(id,1)
             })
         }
-        console.log('selected Sources', selectedSources);
-        console.log('isclicked', isClicked)
-        
         const resp = await findBySource(selectedSources)
         return localStorage.setItem('articles', JSON.stringify(resp))
     }
