@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect, Route,Switch } from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard';
 import SelectContent from '../SelectContent/SelectContent';
-import './SignIn.css'
 
 
 class SignIn extends Component {
@@ -18,7 +17,6 @@ class SignIn extends Component {
     handleFormChange = e => {
         const {name, value} = e.target;
         this.setState({[name]:value})
-        // console.log(name)
     }
 
     handleSubmit = async e => {

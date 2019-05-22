@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import SignIn from '../SignIn/SignIn';
-import { Switch, Route, Redirect,Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import {getSources,findBySource} from '../../Services/Calls';
 import Dashboard from '../Dashboard/Dashboard';
 import SelectContent from '../SelectContent/SelectContent';
-import { className } from 'postcss-selector-parser';
 
 class Container extends Component {
     constructor(){
