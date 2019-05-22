@@ -85,6 +85,10 @@
         background-image: url('../assets/images/Mobile/the-wall-street-journal.png');
         background-size: cover;
     }
+    #yahoo {
+        background-image: url('../assets/images/Mobile/economist.png');
+        background-size: cover;
+    }
 }
 
 @media screen and (min-width: 500px){
@@ -103,7 +107,7 @@
         .source-grid  {
             margin: auto;
             display: grid;
-            grid-template-columns: 50% 50%;
+            grid-template-columns: 33.3% 33.3% 33.3%;
             grid-gap: 15pt;
             align-items: center;
             justify-content: center;
@@ -170,6 +174,10 @@
     
     #the-wall-street-journal {
         background-image: url('../assets/images/desktop/the-wall-street-journal.png');
+        background-size: cover;
+    }
+    #yahoo {
+        background-image: url('../assets/images/desktop/The Economist.png');
         background-size: cover;
     }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Trending from '../Trending/Trending';
-import SelectContent from '../SelectContent/SelectContent';
 import moment from 'moment';
 
 
