@@ -1,32 +1,23 @@
 import React, { Component } from 'react';
-
-import { Link,Route, Switch } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
+import { Link} from 'react-router-dom';
 
 
 class SelectContent extends Component {
-
-    findSources = () => {
-        const {sources} = this.state;
-        const findAll = sources.filter(source => {
-            if(source.id === 'business-insider' || source.id === 'bloomberg' || source.id === 'the-wall-street-journal'){
-                return <img src={`../../assets/images/${source.id}.png`}/>
-            }
-        })
-        this.setState({findAll})
-        console.log(findAll)
-        return findAll
-    }
-
-
     render() {
-        const {sources, handleSourceClick} = this.props
+        const {selectedSources,sources, handleSourceClick,isClicked} = this.props
+        
+        const toggleBtn = selectedSources.length > 0 ?'btn btn-active':'btn'
         return (
-            <div>
+            <div className="source-container">
+                <div className="source-grid">
                 {sources ? sources.map((source,index) => {
-                    return <li key={index} id={source.id} onClick={handleSourceClick}>{source.name}</li>
-                }): null}
-            <Link to='/dashboard'>Continue</Link>
+                    const toggle = isClicked.includes(index) ? 'toggle active' : 'toggle'
+                    const id = source.id
+                    return <li key={index} id={id} className={toggle} onClick={(e)=> handleSourceClick(e,index)} >
+                    </li>
+                }):null}
+                </div>   
+            <Link to='/dashboard' className={toggleBtn} onClick={this.props.handleLinkClick}>Continue</Link>
             </div>
         );
     }
