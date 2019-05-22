@@ -33,8 +33,8 @@ class Container extends Component {
         let clickSource = isClicked
         if(!isClicked.includes(index) && !selectedSources.includes(id)){
             console.log(index);
-            selectSource.push(id)
-            clickSource.push(index)
+            selectSource = [...selectSource, id]
+            clickSource = [...clickSource, index]
             this.setState({
                 selectedSources: selectSource,
                 isClicked: clickSource
