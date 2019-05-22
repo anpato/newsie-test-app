@@ -14,7 +14,7 @@ class SelectContent extends Component {
                     const toggle = isClicked.includes(index) ? 'toggle active' : 'toggle'
                     
                     return <li key={index} id={source.id} className={toggle} onClick={(e)=> handleSourceClick(e,index)} >
-                    {source.name}</li>
+                    </li>
                 }):null}
                 </div>   
             <Link to='/dashboard' className={toggleBtn} onClick={this.props.handleLinkClick}>Continue</Link>
