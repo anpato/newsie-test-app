@@ -13,16 +13,19 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    const articles = JSON.parse(localStorage.getItem('articles'))
-    this.setState({articles})
+
+    setInterval(()=> {
+      const articles = JSON.parse(localStorage.getItem('articles'))
+      this.setState({articles : articles })
+    },1000)
+    
   }
 
   render() {
+    
     const {articles} = this.state
     const allArticles =  articles ? articles.map((article,index) =>{
-      console.log(article.urlToImage)
       return <div className='article-container' key={index}>
-        
                 <h3>Business</h3>
                 <div className='article-info'>
                   {article.urlToImage === null ? <div></div> : <img src={article.urlToImage} alt="article"/>}
@@ -33,14 +36,14 @@ class Dashboard extends Component {
                   <a href={article.url}>READ MORE</a>
                 </div>
               </div>
-    }) : () => <h1>Articles loading...</h1> 
+    }) : <div className='article-container' style={{marginTop: '4em'}}>
+          <h1>Articles loading...</h1>
+        </div> 
     return (
       <div className='dashboard-main'>
         <Header />
         <div className='dashboard-container'> 
-            
           {/* <Trending/> */}
-
           {allArticles}
         </div>
       </div>

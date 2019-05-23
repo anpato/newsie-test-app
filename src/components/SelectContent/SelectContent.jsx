@@ -11,6 +11,11 @@ class SelectContent extends Component {
         }
     }
 
+    componentDidMount() {
+        return localStorage.clear()
+    }
+    
+
     handleLinkClick = (e,index) => {
         this.setState({isRedirect:true})
         this.props.handleBtnClick(e,index)
@@ -32,17 +37,22 @@ class SelectContent extends Component {
         return (
             <div className="source-container">
                 <div className="source-grid">
-                {sources ? sources.map((source,index) => {
-                    const toggle = isClicked.includes(index) ? 'toggle active' : 'toggle'
-                    const id = source.id
-                    return <li key={index} id={id} className={toggle} onClick={(e)=> handleSourceClick(e,index)} >
-                    </li>
-                    
-                
-                }):null}
-                <li id="yahoo" className={toggleOne} onClick={this.handleDummyClick}></li>
+                    {sources ? sources.map((source,index) => {
+                        const toggle = isClicked.includes(index) ? 'toggle active' : 'toggle'
+                        const id = source.id
+                        return <li 
+                                    key={index} 
+                                    id={id} 
+                                    className={toggle} 
+                                    onClick={(e)=> handleSourceClick(e,index)} 
+                                />
+                    }):null}
+                        <li id="yahoo" 
+                            className={toggleOne} 
+                            onClick={this.handleDummyClick}
+                        />
                 </div>   
-            <Link to='/dashboard' className={toggleBtn} onClick={this.handleLinkClick}>Continue</Link>
+                    <Link to='/dashboard' className={toggleBtn} onClick={this.handleLinkClick}>Continue</Link>
             </div>
         );
     }

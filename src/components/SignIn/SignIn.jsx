@@ -10,36 +10,62 @@ class SignIn extends Component {
         this.state = {
             username : '',
             password : '',
-            isAuthenticated: false
+            isAuthenticated: false,
+            isValid : true
         }
     }
 
     handleFormChange = e => {
         const {name, value} = e.target;
-        this.setState({[name]:value})
+        this.setState({[name]:value,isValid:true})
     }
 
-    handleSubmit = async e => {
+    handleSubmit = e => {
+        const {username, password} = this.state;
         e.preventDefault();
-        await this.setState({isAuthenticated:true})
+        if(username.length >= 3 && password.length >= 3){
+            this.setState({isAuthenticated:true})
+        } else {
+            this.setState({isAuthenticated:false, isValid:false})
+        }
     }
 
+    handleCloseModal = () => {
+        this.setState({isValid:true})
+    }
 
     render() {
-        const { username,password,isAuthenticated  } = this.state
-
+        const { username,password,isAuthenticated,isValid } = this.state
+        const modalToggle = isValid === true ? 'modal' : 'modal active'
         if(isAuthenticated === true){
             return <Redirect to='/sources'/>
         }
 
         return (
             <div className="signin-container">
+                <div className={modalToggle}>
+                    <h4>Invalid username or password!</h4>
+                    <h4>Either must have more than three characters!</h4>
+                    <button onClick={this.handleCloseModal}>Close</button>
+                </div>
                 <form className="signin-form" onChange={this.handleFormChange} onSubmit={this.handleSubmit}>
-                    <label htmlFor="username"></label>
-                    <br/>
-                        <input className="username" type="text" name="username" placeholder='Username' defaultValue={username}/>
-                        <input htmlFor="username" type="password" name="password" placeholder='Password' defaultValue={password}/>
-                        <br/>
+                    <label htmlFor="username">Username</label>
+                        <input  
+                            type="text" 
+                            name="username" 
+                            placeholder='Username' 
+                            defaultValue={username}
+                            onFocus={this.handleCloseModal}
+                        />
+                    <label htmlFor="password">Password</label>
+                        <input 
+                            htmlFor="username" 
+                            type="password" 
+                            name="password" 
+                            placeholder='Password' 
+                            defaultValue={password}
+                            onFocus={this.handleCloseModal}
+                        />
                     <button className="signin-btn" type="submit">Sign In</button>
                 </form>
                 <Switch>

@@ -30,7 +30,8 @@ class Container extends Component {
         this.setState({
             isRedirect:false,
             selectedSources:[],
-            isClicked:[],})
+            isClicked:[]
+        })
     }
 
     handleSourceClick = async (e,index) => {
@@ -38,6 +39,7 @@ class Container extends Component {
         const {id} = e.target
         let selectSource = selectedSources
         let clickSource = isClicked
+        
         if(!isClicked.includes(index) && !selectedSources.includes(id)){
             
             selectSource = [...selectSource, id]
@@ -48,12 +50,14 @@ class Container extends Component {
             })
             
         } else {
+
             selectSource.splice(id,1);
             clickSource.splice(index,1);
             this.setState({
                 selectedSources: selectSource,
                 isClicked: clickSource
             })
+        
         }
     }
 
@@ -61,8 +65,7 @@ class Container extends Component {
         e.preventDefault()
         const {selectedSources} = this.state 
         const resp = await findBySource(selectedSources)
-        localStorage.setItem('articles', JSON.stringify(resp))
-        console.log('click')
+        return localStorage.setItem('articles', JSON.stringify(resp))
     }
 
     render() {
@@ -71,8 +74,19 @@ class Container extends Component {
             <div>
                 <Switch>
                     <Route exact path='/' component={SignIn}/>
-                    <Route exact path='/dashboard' component={(props)=> <Dashboard {...props} selectedSources={selectedSources}  />}/>
-                    <Route exact path='/sources' component={(props)=> <SelectContent {...props} selectedSources={selectedSources} handleSourceClick={this.handleSourceClick} sources={sources} isClicked={isClicked} handleBtnClick={this.handleBtnClick}/> }/>
+                    <Route exact path='/dashboard' 
+                        component={(props)=> 
+                            <Dashboard {...props} 
+                                selectedSources={selectedSources}  />
+                    }/>
+                    <Route exact path='/sources' 
+                        component={(props)=> 
+                            <SelectContent {...props} 
+                                selectedSources={selectedSources} 
+                                handleSourceClick={this.handleSourceClick} 
+                                sources={sources} isClicked={isClicked} 
+                                handleBtnClick={this.handleBtnClick}/> 
+                    }/>
                 </Switch>
             </div>
         );
