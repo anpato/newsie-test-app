@@ -7,7 +7,9 @@
     padding-right: 12px;
     padding-bottom: 10px;
     height: 166px;
-    width: 95vw;
+    width: 94vw;
+    margin-left: -6em;
+    margin-top: 2em;
   
     h3{
       width: 92px;
@@ -47,6 +49,7 @@
 
 @media screen and (max-width: 500px){
   .trending-header{
+    margin-top: 3em;
     border-radius: 8px;
     box-shadow: 0 2px 20px 0 rgba(123, 123, 123, 0.5);
     background-color: #f9f9f9;

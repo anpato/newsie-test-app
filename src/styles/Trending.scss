@@ -1,0 +1,54 @@
+.trending-container{
+  // border: solid purple;
+  width: 80%;
+
+  
+}
+.trending-ctn{
+  border: solid purple;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 2px 20px 0 rgba(123, 123, 123, 0.5);
+  background-color: #f9f9f9;
+  margin-bottom: 16px;
+  padding: 10px;
+  
+  .trend-article-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{
+      font-family: 'Open Sans', sans-serif;
+      font-size: 20px;
+      text-align: center;
+      color: #44aae8;
+    }
+    h4{
+      height: 15px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      text-align: center;
+      color: #313e50;
+    }
+  }
+  a{
+    text-decoration: none;
+    h1{
+      font-family: 'Open Sans', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.6px;
+      color: #313e50;
+    }
+    h1:hover{
+      color:#44aae8
+    }
+  
+  }
+  p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #313e50;
+  }
+  
+  
+}
