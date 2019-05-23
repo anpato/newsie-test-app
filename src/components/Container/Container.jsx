@@ -77,7 +77,8 @@ class Container extends Component {
                     <Route exact path='/dashboard' 
                         component={(props)=> 
                             <Dashboard {...props} 
-                                selectedSources={selectedSources}  />
+                                selectedSources={selectedSources}  
+                            />
                     }/>
                     <Route exact path='/sources' 
                         component={(props)=> 
@@ -85,7 +86,8 @@ class Container extends Component {
                                 selectedSources={selectedSources} 
                                 handleSourceClick={this.handleSourceClick} 
                                 sources={sources} isClicked={isClicked} 
-                                handleBtnClick={this.handleBtnClick}/> 
+                                handleBtnClick={this.handleBtnClick}
+                            /> 
                     }/>
                 </Switch>
             </div>
