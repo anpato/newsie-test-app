@@ -1,0 +1,185 @@
+
+@media screen and (max-width: 500px){
+    .source-container {
+        margin: auto;
+        margin-top: 1em;
+        text-align: center;
+        width: 95%;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(249, 249, 249);
+        border-radius: 8pt;
+        box-shadow: 0px 2px 20px rgba(123, 123, 123, 0.5);
+    
+        .source-grid  {
+            margin: auto;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-gap: 15pt;
+            align-items: center;
+            justify-content: center;
+
+            .toggle {
+                text-align: center;
+                transition: all 0.4s;
+                opacity: .6;
+                cursor: pointer;
+                list-style: none;
+                border-radius: 15pt;
+                width: 120px;
+                height: 120px;
+                box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.8);
+            }
+            .active {
+                cursor: pointer;
+                transition: all 0.4s;
+                opacity: 1;
+                box-shadow: 0px 2px 20px #0098e0;
+            }
+        }
+    
+        .btn {
+            transition: all 0.4s;
+            opacity: .6;
+            margin-top: 41px;
+            text-align: center;
+            margin: auto;
+            color: #f9f9f9;
+            font-size: 22px;
+            text-decoration: none;
+            padding: .6em 3em;
+            border-radius: 10px;
+            box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.5), 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            background-image: linear-gradient(to bottom, #1fa9eb, #0098e0);
+        }
+    
+        .btn-active {
+            transition: all 0.4s;
+            opacity: 1;
+        }
+    
+    }
+    
+    #fortune {
+        background-image: url('../assets/images/Mobile/Fortune.png');
+        background-size: cover;
+    }
+    
+    #cnbc {
+        background-image: url('../assets/images/Mobile/CNBC.png');
+        background-size: cover;
+    }
+    
+    #bloomberg {
+        background-image: url('../assets/images/Mobile/bloomberg.png');
+        background-size: cover;
+    }
+    
+    #business-insider {
+        background-image: url('../assets/images/Mobile/business-insider.png');
+        background-size: cover;
+    }
+    
+    #the-wall-street-journal {
+        background-image: url('../assets/images/Mobile/the-wall-street-journal.png');
+        background-size: cover;
+    }
+    #yahoo {
+        background-image: url('../assets/images/Mobile/economist.png');
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .source-container {
+        margin: auto;
+        margin-top: 1em;
+        text-align: center;
+        width: 95%;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(249, 249, 249);
+        border-radius: 8pt;
+        box-shadow: 0px 2px 20px rgba(123, 123, 123, 0.5);
+    
+        .source-grid  {
+            margin: auto;
+            display: grid;
+            grid-template-columns: 33.3% 33.3% 33.3%;
+            grid-gap: 15pt;
+            align-items: center;
+            justify-content: center;
+
+            .toggle {
+                text-align: center;
+                transition: all 0.4s;
+                opacity: .6;
+                cursor: pointer;
+                list-style: none;
+                border-radius: 28pt;
+                width: 224px;
+                height: 152px;
+                box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.8);
+            }
+            .active {
+                cursor: pointer;
+                transition: all 0.4s;
+                opacity: 1;
+                box-shadow: 0px 2px 20px #0098e0;
+            }
+        }
+    
+        .btn {
+            transition: all 0.4s;
+            opacity: .6;
+            margin-top: 41px;
+            text-align: center;
+            margin: auto;
+            color: #f9f9f9;
+            font-size: 22px;
+            text-decoration: none;
+            padding: .6em 3em;
+            border-radius: 10px;
+            box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.5), 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            background-image: linear-gradient(to bottom, #1fa9eb, #0098e0);
+        }
+    
+        .btn-active {
+            transition: all 0.4s;
+            opacity: 1;
+        }
+    
+    }
+    #fortune {
+        background-image: url('../assets/images/desktop/Fortune.png');
+        background-size: cover;
+    }
+    
+    #cnbc {
+        background-image: url('../assets/images/desktop/CNBC.png');
+        background-size: cover;
+    }
+    
+    #bloomberg {
+        background-image: url('../assets/images/desktop/bloomberg.png');
+        background-size: cover;
+    }
+    
+    #business-insider {
+        background-image: url('../assets/images/desktop/business-insider.png');
+        background-size: cover;
+    }
+    
+    #the-wall-street-journal {
+        background-image: url('../assets/images/desktop/the-wall-street-journal.png');
+        background-size: cover;
+    }
+    #yahoo {
+        background-image: url('../assets/images/desktop/The Economist.png');
+        background-size: cover;
+    }
+}
+
+
