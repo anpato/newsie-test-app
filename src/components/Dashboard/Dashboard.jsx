@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
-import Trending from '../Trending/Trending';
+import TrendingHeader from '../TrendingHeader/TrendingHeader'
+import SelectContent from '../SelectContent/SelectContent';
 import moment from 'moment';
 
 
@@ -13,7 +14,6 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-
     setInterval(()=> {
       const articles = JSON.parse(localStorage.getItem('articles'))
       this.setState({articles : articles })
@@ -43,7 +43,7 @@ class Dashboard extends Component {
       <div className='dashboard-main'>
         <Header />
         <div className='dashboard-container'> 
-          {/* <Trending/> */}
+          <TrendingHeader/>
           {allArticles}
         </div>
       </div>
