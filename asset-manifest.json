@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/newsie/static/css/main.91f7468f.chunk.css",
-    "main.js": "/newsie/static/js/main.3854be64.chunk.js",
-    "main.js.map": "/newsie/static/js/main.3854be64.chunk.js.map",
-    "runtime~main.js": "/newsie/static/js/runtime~main.dd8e392e.js",
-    "runtime~main.js.map": "/newsie/static/js/runtime~main.dd8e392e.js.map",
-    "static/js/2.b101d06a.chunk.js": "/newsie/static/js/2.b101d06a.chunk.js",
-    "static/js/2.b101d06a.chunk.js.map": "/newsie/static/js/2.b101d06a.chunk.js.map",
-    "index.html": "/newsie/index.html",
-    "precache-manifest.73e8f88ac904f341102f2e0f9f4c1eb1.js": "/newsie/precache-manifest.73e8f88ac904f341102f2e0f9f4c1eb1.js",
-    "service-worker.js": "/newsie/service-worker.js",
-    "static/css/main.91f7468f.chunk.css.map": "/newsie/static/css/main.91f7468f.chunk.css.map",
-    "static/media/App.scss": "/newsie/static/media/the-wall-street-journal.538ef1c6.png"
+    "main.css": "/newsie-test-app/static/css/main.b939aaa0.chunk.css",
+    "main.js": "/newsie-test-app/static/js/main.e65b5672.chunk.js",
+    "main.js.map": "/newsie-test-app/static/js/main.e65b5672.chunk.js.map",
+    "runtime~main.js": "/newsie-test-app/static/js/runtime~main.673171be.js",
+    "runtime~main.js.map": "/newsie-test-app/static/js/runtime~main.673171be.js.map",
+    "static/js/2.014f66b8.chunk.js": "/newsie-test-app/static/js/2.014f66b8.chunk.js",
+    "static/js/2.014f66b8.chunk.js.map": "/newsie-test-app/static/js/2.014f66b8.chunk.js.map",
+    "index.html": "/newsie-test-app/index.html",
+    "precache-manifest.a0e8cb933b2c2eac3895979c0f78c49c.js": "/newsie-test-app/precache-manifest.a0e8cb933b2c2eac3895979c0f78c49c.js",
+    "service-worker.js": "/newsie-test-app/service-worker.js",
+    "static/css/main.b939aaa0.chunk.css.map": "/newsie-test-app/static/css/main.b939aaa0.chunk.css.map",
+    "static/media/App.scss": "/newsie-test-app/static/media/the-wall-street-journal.538ef1c6.png",
+    "static/media/newsIcon.png": "/newsie-test-app/static/media/newsIcon.3ab95a6c.png",
+    "static/media/profile.png": "/newsie-test-app/static/media/profile.ac7dcc06.png"
   }
 }
